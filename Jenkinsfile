@@ -10,14 +10,14 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                bat 'mvn clean test'
+               bat '"C:\\Users\\DELL\\Downloads\\apache-maven-3.10.0-bin\\apache-maven-3.10.0\\bin\\mvn.cmd" clean test'
+                
             }
         }
 
         stage('Package') {
             steps {
-                bat 'mvn -DskipTests package'
-            }
+                bat '"C:\\Users\\DELL\\Downloads\\apache-maven-3.10.0-bin\\apache-maven-3.10.0\\bin\\mvn.cmd" -DskipTests package'
         }
 
         stage('Run Program') {
