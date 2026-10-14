@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -10,14 +11,14 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-               bat '"C:\\Users\\DELL\\Downloads\\apache-maven-3.10.0-bin\\apache-maven-3.10.0\\bin\\mvn.cmd" clean test'
-                
+                bat '"C:\\Users\\DELL\\Downloads\\apache-maven-3.10.0-bin\\apache-maven-3.10.0\\bin\\mvn.cmd" clean test'
             }
         }
 
         stage('Package') {
             steps {
                 bat '"C:\\Users\\DELL\\Downloads\\apache-maven-3.10.0-bin\\apache-maven-3.10.0\\bin\\mvn.cmd" -DskipTests package'
+            }
         }
 
         stage('Run Program') {
