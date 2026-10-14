@@ -47,7 +47,7 @@ public class StudentGradeCalculatorTest {
         assertEquals("A", StudentGradeCalculator.calculateGrade(100));
     }
 
-    // Negative test cases
+    // Correct negative tests: invalid marks must be rejected
 
     @Test
     void testNegativeMarks() {
@@ -60,4 +60,18 @@ public class StudentGradeCalculatorTest {
         assertThrows(IllegalArgumentException.class,
             () -> StudentGradeCalculator.calculateGrade(101));
     }
+
+    // Intentional failure demonstration
+
+    @Test
+    void demoNegativeTestFailure() {
+        assertEquals("A",
+            StudentGradeCalculator.calculateGrade(-1));
+    }
+
+
+@Test
+void demoIntentionalFailure() {
+    assertEquals("A", StudentGradeCalculator.calculateGrade(75));
+}
 }
