@@ -1,8 +1,11 @@
 
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StudentGradeCalculatorTest {
+
+    // Positive test cases
 
     @Test
     void testGradeA() {
@@ -30,15 +33,31 @@ public class StudentGradeCalculatorTest {
     }
 
     @Test
-    void testFail() {
+    void testGradeF() {
         assertEquals("F", StudentGradeCalculator.calculateGrade(30));
     }
 
     @Test
-    void testInvalidMarks() {
+    void testMinimumMarks() {
+        assertEquals("F", StudentGradeCalculator.calculateGrade(0));
+    }
+
+    @Test
+    void testMaximumMarks() {
+        assertEquals("A", StudentGradeCalculator.calculateGrade(100));
+    }
+
+    // Negative test cases
+
+    @Test
+    void testNegativeMarks() {
         assertThrows(IllegalArgumentException.class,
-            () -> StudentGradeCalculator.calculateGrade(110));
+            () -> StudentGradeCalculator.calculateGrade(-1));
+    }
+
+    @Test
+    void testMarksAboveHundred() {
+        assertThrows(IllegalArgumentException.class,
+            () -> StudentGradeCalculator.calculateGrade(101));
     }
 }
-
-
